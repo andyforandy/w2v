@@ -1,0 +1,16 @@
+name: product similarity word2vec
+
+conda_env: my_env.yaml
+# Can have a docker_env instead of a conda_env, e.g.
+# docker_env:
+#    image:  mlflow-docker-example
+
+entry_points:
+  main: 
+    parameters:
+      embeding_size: {type: int, default: 10}
+      window: {type: int, default: 3}
+      lr: {type: float, default: 0.01}
+      epochs: {type: int, default: 100}
+      sg: {type: int, default: 0}
+    command: "python train_word2vec.py {embeding_size} {window} {lr} {epochs} {sg}"
